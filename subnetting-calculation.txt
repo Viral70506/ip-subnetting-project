@@ -1,0 +1,72 @@
+IP ADDRESSING AND SUBNETTING CALCULATION
+
+Given Network:
+192.168.1.0/24
+
+Total IP Addresses:
+256
+
+Requirement:
+We need 3 subnets (switch1,switch2,switch3)
+
+--------------------------------------------------
+ 1: Calculate number of subnet bits
+
+Formula:
+2^n ≥ number of subnets
+
+2^2 = 4 ≥ 3 
+
+So, n = 2 bits
+
+--------------------------------------------------
+
+ 2: New Subnet Mask
+
+Original mask = /24
+New mask = /24 + 2 = /26
+
+Subnet Mask in decimal:
+255.255.255.192
+
+--------------------------------------------------
+
+ 3: Number of Subnets
+
+2^2 = 4 subnets
+
+--------------------------------------------------
+
+ 4: Number of Hosts per Subnet
+
+Formula:
+2^h - 2
+
+Remaining bits = 6
+
+2^6 - 2 = 64 - 2 = 62 usable hosts
+
+--------------------------------------------------
+
+ 5: Subnet Table
+
+Subnet 1:
+Network Address: 192.168.1.0/26
+Usable Range: 192.168.1.1 – 192.168.1.62
+Broadcast Address: 192.168.1.63
+
+Subnet 2:
+Network Address: 192.168.1.64/26
+Usable Range: 192.168.1.65 – 192.168.1.126
+Broadcast Address: 192.168.1.127
+
+Subnet 3:
+Network Address: 192.168.1.128/26
+Usable Range: 192.168.1.129 – 192.168.1.190
+Broadcast Address: 192.168.1.191
+
+--------------------------------------------------
+
+The network 192.168.1.0/24 is successfully divided into 3 subnets using /26 mask.
+Each subnet can support up to 62 hosts.
+3 subnets are used for switch1, switch2, and switch3.
